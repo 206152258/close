@@ -18,24 +18,27 @@
 
 
 //jQuery实现
-$("#clickme").on('click',function(){
-    $("#close").show();
-    setTimeout(() => {
-        $(document).one('click',function(){
-            $("#close").hide();
-        })
-    }, 0);
+// $("#clickme").on('click',function(){
+//     $("#close").show();
+//     setTimeout(() => {
+//         $(document).one('click',function(){
+//             $("#close").hide();
+//         })
+//     }, 0);
 
     // $(document).one('click',function(){
         // $("#close").hide();
     // })
+// })
+var close=document.getElementById("close");
+$('#clickme').on('click',()=>{
+    if(close.style.display === 'block'){close.style.display = 'none'}
+    else{$('#close').show()}
+    $(document).one('click',()=>{$('#close').hide()})
 })
+$('#clickme,#close').on('click',(x)=>{x.stopPropagation()})
 
 
-
-$("#wrapper").on('click',function(e){
-    e.stopPropagation();
-})
 // $(document).on('click',function(){ 
     // $("#close").hide();
 // })
